@@ -103,18 +103,18 @@ const gameboard = (function () {
         }
 
     }
-    function reset() {
+       function reset() {
         Winning_Conditions = [['', '', ''],
         ['', '', ''],
         ['', '', '']
         ]
-        const result = document.querySelector('h3')
-        result.remove()
-        give_index.forEach((box) => {
+          give_index.forEach((box) => {
             box.style.pointerEvents = 'auto'
             box.textContent = ''
         })
         turn = 0
+        const result = document.querySelector('h3')
+        result.remove()
     }
 
     return { fillMarker, findWinner,reset }
