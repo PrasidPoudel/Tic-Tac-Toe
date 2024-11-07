@@ -137,6 +137,9 @@ boards.forEach((box) => {
 function showWinner(nga) {
     const winner_div = document.createElement('h3')
     winner_div.textContent = nga
+    give_index.forEach((box)=>{
+        box.style.pointerEvents='none'
+    })
     body.appendChild(winner_div)
 }
 document.querySelector('.reset').addEventListener('click', () => {
@@ -149,6 +152,6 @@ document.querySelector('.reset').addEventListener('click', () => {
     give_index.forEach((box)=>{
         box.style.pointerEvents='auto'
         box.textContent=''
-        turn=0;
     })
+    turn=0
 })
