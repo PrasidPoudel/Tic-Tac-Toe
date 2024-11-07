@@ -103,8 +103,21 @@ const gameboard = (function () {
         }
 
     }
+    function reset() {
+        Winning_Conditions = [['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+        ]
+        const result = document.querySelector('h3')
+        result.remove()
+        give_index.forEach((box) => {
+            box.style.pointerEvents = 'auto'
+            box.textContent = ''
+        })
+        turn = 0
+    }
 
-    return { fillMarker, findWinner }
+    return { fillMarker, findWinner,reset }
 })();
 const body = document.querySelector('body')
 //Let the players play turn by turn
@@ -137,21 +150,11 @@ boards.forEach((box) => {
 function showWinner(nga) {
     const winner_div = document.createElement('h3')
     winner_div.textContent = nga
-    give_index.forEach((box)=>{
-        box.style.pointerEvents='none'
+    give_index.forEach((box) => {
+        box.style.pointerEvents = 'none'
     })
     body.appendChild(winner_div)
 }
 document.querySelector('.reset').addEventListener('click', () => {
-    Winning_Conditions = [['', '', ''],
-    ['', '', ''],
-    ['', '', '']
-    ]
-    const result=document.querySelector('h3')
-    result.remove()
-    give_index.forEach((box)=>{
-        box.style.pointerEvents='auto'
-        box.textContent=''
-    })
-    turn=0
+gameboard.reset()
 })
