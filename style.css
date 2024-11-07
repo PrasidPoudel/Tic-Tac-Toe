@@ -1,1 +1,44 @@
-
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 420px;
+    margin-top: 15px;
+}
+.main>div{
+    width: 32%;
+    border: 1px solid black;
+    height: 140px;
+    font-size: 90px;
+    text-align: center;
+}
+.main>div:hover{
+    background-color: lightblue;
+}
+.reset {
+    display: flex;
+    font-size: 24px;
+    margin: auto;
+    margin-top: 20px;
+    height: max-content;
+    width: 75px;
+    height: 35px;
+    background-color: lightcoral;
+    border-radius: 7px;
+}
+h3 {
+    text-align: center;
+    margin-top: 13px;
+}
+.top {
+    height: 7vh;
+    background-color: blue;
+}
+body {
+    margin: 0;
+}
+.title{
+    display: flex;
+    margin: auto;
+    font-size: 30px;
+}
