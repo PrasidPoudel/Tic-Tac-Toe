@@ -5,6 +5,8 @@ function createPlayer(name, marker) {
     marker,
   };
 }
+//Let the players play turn by turn
+let turn = 0;
 // Created Two Player Objects
 const PlayerOne = createPlayer("Player1", "X");
 const PlayerTwo = createPlayer("Player2", "O");
@@ -53,6 +55,7 @@ const gameboard = (function () {
     let col_board = board.getAttribute("col");
     Winning_Conditions[row_board][col_board] = marker;
     board.textContent = marker;
+    board.style.pointerEvents = "none";
   };
   const findWinner = (array, marker) => {
     if (
@@ -139,8 +142,7 @@ const gameboard = (function () {
   return { fillMarker, findWinner, reset };
 })();
 const body = document.querySelector("body");
-//Let the players play turn by turn
-let turn = 0;
+
 const boards = document.querySelectorAll(".board");
 boards.forEach((box) => {
   box.addEventListener("click", () => {
@@ -148,9 +150,11 @@ boards.forEach((box) => {
       if (turn % 2 === 0) {
         gameboard.fillMarker(box, PlayerOne.marker);
         box.classList.add("X");
+        box.classList.remove('O')
       } else {
         gameboard.fillMarker(box, PlayerTwo.marker);
         box.classList.add("O");
+        box.classList.remove("X")
       }
     } else alert('Already filled')
     let nga = gameboard.findWinner(Winning_Conditions, "X");
@@ -178,4 +182,3 @@ function showWinner(nga) {
 document.querySelector(".reset").addEventListener("click", () => {
   gameboard.reset();
 });
-function findDiv(a, b, c) {}
