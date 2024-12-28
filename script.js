@@ -49,81 +49,78 @@ function find_marker(marker) {
 
 //We have finished some basic stuff now let's move to complete the game
 const gameboard = (function () {
-  let counter = 0;
-  const fillMarker = (board, marker) => {
-    let row_board = board.getAttribute("row");
-    let col_board = board.getAttribute("col");
-    Winning_Conditions[row_board][col_board] = marker;
-    board.textContent = marker;
-    board.style.pointerEvents = "none";
-  };
-  const findWinner = (array, marker) => {
-    if (
-      array[0][0] === marker &&
-      array[0][1] === marker &&
-      array[0][2] === marker
-    ) {
-      find_marker(marker);
-      counter++;
-      return find_marker(marker);
-    } else if (
-      array[1][0] === marker &&
-      array[1][1] === marker &&
-      array[1][2] === marker
-    ) {
-      find_marker(marker);
-      counter++;
-      return find_marker(marker);
-    } else if (
-      array[2][0] === marker &&
-      array[2][1] === marker &&
-      array[2][2] === marker
-    ) {
-      find_marker(marker);
-      counter++;
-      return find_marker(marker);
-    } else if (
-      array[0][0] === marker &&
-      array[1][0] === marker &&
-      array[2][0] === marker
-    ) {
-      find_marker(marker);
-      counter++;
-      return find_marker(marker);
-    } else if (
-      array[0][1] === marker &&
-      array[1][1] === marker &&
-      array[2][1] === marker
-    ) {
-      find_marker(marker);
-      counter++;
-      return find_marker(marker);
-    } else if (
-      array[0][2] === marker &&
-      array[1][2] === marker &&
-      array[2][2] === marker
-    ) {
-      find_marker(marker);
-      counter++;
-      return find_marker(marker);
-    } else if (
-      array[0][0] === marker &&
-      array[1][1] === marker &&
-      array[2][2] === marker
-    ) {
-      find_marker(marker);
-      counter++;
-      return find_marker(marker);
-    } else if (
-      array[0][2] === marker &&
-      array[1][1] === marker &&
-      array[2][0] === marker
-    ) {
-      find_marker(marker);
-      counter++;
-      return find_marker(marker);
+    let counter = 0;
+    const fillMarker = (board, marker) => {
+        let row_board = board.getAttribute('row');
+        let col_board = board.getAttribute('col');
+        Winning_Conditions[row_board][col_board] = marker
+        board.textContent = marker;
+        board.style.pointerEvents = 'none'
     }
-  };
+    const findWinner = (array, marker) => {
+        if (array[0][0] === marker && array[0][1] === marker && array[0][2] === marker) {
+            find_marker(marker)
+            counter++
+            return find_marker(marker)
+
+        }
+        else if (array[1][0] === marker && array[1][1] === marker && array[1][2] === marker) {
+            find_marker(marker)
+            counter++
+            return find_marker(marker)
+
+        }
+        else if (array[2][0] === marker && array[2][1] === marker && array[2][2] === marker) {
+            find_marker(marker)
+            counter++
+            return find_marker(marker)
+
+        }
+        else if (array[0][0] === marker && array[1][0] === marker && array[2][0] === marker) {
+            find_marker(marker)
+            counter++
+            return find_marker(marker)
+
+        }
+        else if (array[0][1] === marker && array[1][1] === marker && array[2][1] === marker) {
+            find_marker(marker)
+            counter++
+            return find_marker(marker)
+
+        }
+        else if (array[0][2] === marker && array[1][2] === marker && array[2][2] === marker) {
+            find_marker(marker)
+            counter++
+            return find_marker(marker)
+
+        }
+        else if (array[0][0] === marker && array[1][1] === marker && array[2][2] === marker) {
+            find_marker(marker)
+            counter++
+            return find_marker(marker)
+        }
+        else if (array[0][2] === marker && array[1][1] === marker && array[2][0] === marker) {
+            find_marker(marker)
+            counter++
+            return find_marker(marker)
+        }
+
+    }
+       function reset() {
+        Winning_Conditions = [['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+        ]
+          give_index.forEach((box) => {
+            box.style.pointerEvents = 'auto'
+            box.textContent = ''
+        })
+        turn = 0
+        const result = document.querySelector('h3')
+        result.remove()
+    }
+
+    return { fillMarker, findWinner,reset }
   function reset() {
     Winning_Conditions = [
       ["", "", ""],
@@ -139,7 +136,6 @@ const gameboard = (function () {
     result.remove();
   }
 
-  return { fillMarker, findWinner, reset };
 })();
 const body = document.querySelector("body");
 
@@ -182,3 +178,4 @@ function showWinner(nga) {
 document.querySelector(".reset").addEventListener("click", () => {
   gameboard.reset();
 });
+
