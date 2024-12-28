@@ -42,3 +42,12 @@ body {
     margin: auto;
     font-size: 30px;
 }
+.X,.O {
+    font-family: "Dancing Script", serif;
+}
+.X{
+    color: red;
+}
+.O{
+    color: orange;
+}
